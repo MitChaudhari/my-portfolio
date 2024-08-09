@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mitansh's Portfolio: Resume Website 
 
-## Getting Started
+Welcome to Mitansh Chaudhari's personal resume website! This project is designed to showcase my skills, experience, and projects in a professional and visually appealing manner. The site serves as a digital resume, providing a comprehensive overview of my journey as an aspiring software engineer.
 
-First, run the development server:
+## 🌟 Why Build a Resume Website?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+In today's digital age, having an online presence is crucial for standing out in the tech industry. This resume website allows me to present my qualifications in a dynamic and interactive way, beyond the traditional PDF resume. It gives potential employers and collaborators an engaging platform to explore my work, skills, and experiences.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Lottie](https://airbnb.io/lottie/)
+- **Icons**: [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
+- **Version Control**: [Git](https://git-scm.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🛠️ Installation
 
-## Learn More
+To get started with this project, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   git clone https://github.com/MitChaudhari/my-portfolio.git
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Navigate to the project directory:**
 
-## Deploy on Vercel
+   ```bash
+   cd my-portfolio
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Install dependencies:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser** and go to `http://localhost:3000` to see the website in action.
+
+## 👨‍💻 About the Creator
+
+**Mitansh Chaudhari**
+
+- **Email**: [mitansh46@gmail.com](mailto:mitansh46@gmail.com)
+- **LinkedIn**: [linkedin.com/in/mit01](https://www.linkedin.com/in/mit01/)
+
+I'm an aspiring software engineer passionate about exploring the digital playground and creating innovative solutions. This website is a testament to my skills and dedication to the craft.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+Thank you for visiting my portfolio website! If you have any questions or would like to connect, feel free to reach out via email or LinkedIn.
