@@ -47,6 +47,11 @@ export default function Home() {
           <meta name="description" content="My personal portfolio styled like an IDE" />
           <link rel="icon" href="/images/logo/logo.png" />
         </Head>
+
+        <div className="development-banner">
+          <p>This website is under development 🚧</p>
+        </div>
+
         <div className="moon"></div>
 
         <img src="/images/background/hero-bj.jpg" alt="Background Image" className="background-image" />
