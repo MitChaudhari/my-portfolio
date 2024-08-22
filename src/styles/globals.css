@@ -32,7 +32,6 @@ body {
   top: 20px; /* Slightly down from the top */
   left: 50%;
   transform: translateX(-50%);
-  /* background-color: rgba(127, 64, 39, 0.947); Semi-transparent black background */
   color: #f02525; /* White text color */
   padding: 8px 20px;
   border-radius: 8px; /* Rounded corners */
@@ -127,7 +126,44 @@ body {
   }
 }
 
+/* Animation for sliding and fading in from the left */
+@keyframes slideInLeft {
+  0% {
+    transform: translate(-100%, -50%); /* Start off-screen to the left */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%); /* End at centered position */
+    opacity: 1;
+  }
+}
+
+/* Updated animation for fading in the subtitle */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Animation for sliding and fading in from the bottom */
+@keyframes slideInUp {
+  0% {
+    transform: translate(-50%, 100%); /* Start off-screen at the bottom */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%); /* End at centered position */
+    opacity: 1;
+  }
+}
+
+
 .title-container {
+  animation: slideInLeft 1s ease-out forwards;
   position: absolute;
   top: 48%;
   left: 50%;
@@ -144,16 +180,20 @@ body {
   color: #FFA500; /* Orange color for 'Mitansh Chaudhari' */
 }
 
+/* subtitle container */
 .sub-title-container {
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-size: 1.3vw; /* Responsive font size */
-  font-weight: 500; /* Thin font style */
-  color: #d4d4d4; /* Slightly dimmer color for the subtitle */
-  margin-top: 1vw; /* Space between title and subtitle */
+  font-size: 1.3vw;
+  font-weight: 500;
+  color: #d4d4d4;
+  margin-top: 1vw;
+  opacity: 0; /* Start fully hidden */
+  animation: fadeIn 1.5s ease-out forwards;
+  animation-delay: 1s; /* Delay to start after the title animation */
 }
 
 @keyframes jump {
@@ -174,6 +214,7 @@ body {
   justify-content: center;
   gap: 20px; /* Space between icons */
   z-index: 2;
+  animation: slideInUp 1.5s ease-out forwards;
 }
 
 .social-icon {
@@ -205,6 +246,7 @@ body {
 
 /* Lottie Animation Container */
 .lottie-animation-container {
+  animation: slideInUp 1s ease-out forwards;
   position: absolute;
   top: 85%; /* Adjusted to position underneath the icons */
   left: 50%;
@@ -212,7 +254,7 @@ body {
   width: 72px; /* Size of the Lottie animation */
   height: 72px;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.4s ease-in-out;
 }
 
 /* Hover Effect */
@@ -220,33 +262,31 @@ body {
   transform: translate(-50%, -50%) scale(1.2); /* Pop-out effect on hover */
 }
 
-/* About Section */
-.about-section {
+/* General styles for sections */
+.about-section,
+.projects-section,
+.contact-section {
+  background: linear-gradient(
+    180deg,
+    #121212,
+    #1f1f1f 50%,
+    #2a2a2a 100%
+  );
   height: 100vh;
-  background-color: #000000; /* Black background */
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #ffffff;
 }
 
-.about-title {
+.about-title,
+.projects-title,
+.contact-title {
   font-size: 3em;
   color: #ffffff;
   text-align: center;
 }
 
-/* About Section */
-.about-section {
-  height: 100vh;
-  background-color: #000000; /* Black background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.about-title {
-  font-size: 3em;
-  color: #ffffff;
-  text-align: center;
-}
+
 
