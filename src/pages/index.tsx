@@ -15,6 +15,7 @@ import { EmailIcon, LinkedInIcon, GitHubIcon } from '../components/Icons';
 export default function Home() {
   const firefliesRef = useRef<HTMLDivElement>(null);
   const [animationData, setAnimationData] = useState(null);
+  const [arrowUpData, setArrowUpData] = useState(null);
 
   // Home page background fireflies effect
   useEffect(() => {
@@ -41,6 +42,14 @@ export default function Home() {
       .then((data) => setAnimationData(data))
       .catch((error) => console.error('Error loading animation:', error));
   }, []);
+
+    // Fetch arrow-up animation
+    useEffect(() => {
+      fetch('/animation/arrow-up.json')
+        .then((response) => response.json())
+        .then((data) => setArrowUpData(data))
+        .catch((error) => console.error('Error loading arrow-up animation:', error));
+    }, []);
 
   return (
     <>
@@ -72,18 +81,19 @@ export default function Home() {
           <p>Aspiring Software Engineer | Full Stack Web & App Developer</p>
         </div>
         <div className="social-icons-container">
-        <a href="mailto:mitansh46@gmail.com" className="social-icon email-icon">
+          <a href="mailto:mitansh46@gmail.com" className="social-icon home-icon email-icon">
             <EmailIcon />
           </a>
-          <a href="https://www.linkedin.com/in/mit01/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin-icon">
+          <a href="https://www.linkedin.com/in/mit01/" target="_blank" rel="noopener noreferrer" className="social-icon home-icon linkedin-icon">
             <LinkedInIcon />
           </a>
-          <a href="https://github.com/MitChaudhari" target="_blank" rel="noopener noreferrer" className="social-icon github-icon">
+          <a href="https://github.com/MitChaudhari" target="_blank" rel="noopener noreferrer" className="social-icon home-icon github-icon">
             <GitHubIcon />
           </a>
         </div>
+
         <div className="lottie-animation-container">
-          <a href="#about" onClick={handleScroll}>
+          <a href="#about" onClick={(event) => handleScroll(event, 'about')}>
             {animationData && <Lottie animationData={animationData} loop={true} />}
           </a>
         </div>
@@ -104,6 +114,29 @@ export default function Home() {
       <section id="contact" className="contact-section">
         <h2 className="about-title">Contact</h2>
       </section>
+
+      {/* Footer Section */}
+      <footer className="footer">
+        <div className="footer-arrow">
+          {arrowUpData && (
+            <a href="#home" onClick={(event) => handleScroll(event, 'home')}>
+              <Lottie animationData={arrowUpData} loop={true} className="arrow-up" />
+            </a>
+          )}
+        </div>
+        <div className="social-icons-container">
+          <a href="mailto:mitansh46@gmail.com" className="social-icon email-icon">
+            <EmailIcon />
+          </a>
+          <a href="https://www.linkedin.com/in/mit01/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin-icon">
+            <LinkedInIcon />
+          </a>
+          <a href="https://github.com/MitChaudhari" target="_blank" rel="noopener noreferrer" className="social-icon github-icon">
+            <GitHubIcon />
+          </a>
+        </div>
+        <p className="copyright">MITANSH CHAUDHARI ©2024</p>
+      </footer>
     </>
   );
 }

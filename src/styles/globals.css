@@ -9,7 +9,7 @@ html {
 
 body {
   background-color: #000000;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   color: #d4d4d4;
   min-height: 100vh;
   margin: 0;
@@ -35,7 +35,7 @@ body {
   color: #f02525; /* White text color */
   padding: 8px 20px;
   border-radius: 8px; /* Rounded corners */
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   font-size: 1em;
   z-index: 1000; /* Ensure the banner is above other elements */
   pointer-events: none; /* Make the banner non-interactive */
@@ -45,7 +45,6 @@ body {
 .development-banner p {
   margin: 0;
 }
-
 
 .background-image {
   position: absolute;
@@ -75,7 +74,9 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 8px 2px rgba(255, 255, 204, 0.6);
   animation: moveFirefly linear infinite;
-  animation-duration: calc(4s + 3s * var(--random-speed)); /* Slower and smoother movement */
+  animation-duration: calc(
+    4s + 3s * var(--random-speed)
+  ); /* Slower and smoother movement */
   animation-timing-function: ease-in-out; /* Smooth easing */
 }
 
@@ -88,14 +89,16 @@ body {
     opacity: 1;
   }
   50% {
-    transform: translateX(calc(200px - 400px * var(--random-x))) translateY(calc(200px - 200px * var(--random-y))) scale(1.5);
+    transform: translateX(calc(200px - 400px * var(--random-x)))
+      translateY(calc(200px - 200px * var(--random-y))) scale(1.5);
     opacity: 1;
   }
   90% {
     opacity: 0.5;
   }
   100% {
-    transform: translateX(calc(400px - 800px * var(--random-x))) translateY(calc(200px - 400px * var(--random-y))) scale(1);
+    transform: translateX(calc(400px - 800px * var(--random-x)))
+      translateY(calc(200px - 400px * var(--random-y))) scale(1);
     opacity: 0;
   }
 }
@@ -108,21 +111,33 @@ body {
   height: 3vw; /* Responsive height */
   max-width: 150px; /* Max size for larger screens */
   max-height: 150px;
-  background: 
-    radial-gradient(circle at 80% 50%, #FFA578 0%, #FFE9AC 70%, rgba(0, 0, 0, 0) 100%), /* Blend of light red to light yellow */
-    radial-gradient(circle at left, #FFE9AC 0%, rgba(0, 0, 0, 0) 70%); /* Light yellow fading to transparent */
+  background: radial-gradient(
+      circle at 80% 50%,
+      #ffa578 0%,
+      #ffe9ac 70%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    /* Blend of light red to light yellow */
+      radial-gradient(circle at left, #ffe9ac 0%, rgba(0, 0, 0, 0) 70%); /* Light yellow fading to transparent */
   border-radius: 50%;
-  box-shadow: 0 0 50px 25px rgba(255, 255, 255, 0.6), 0 0 100px 50px rgba(255, 255, 255, 0.4), 0 0 150px 75px rgba(255, 183, 77, 0.2); /* Enhanced glowing effect */
+  box-shadow: 0 0 50px 25px rgba(255, 255, 255, 0.6),
+    0 0 100px 50px rgba(255, 255, 255, 0.4),
+    0 0 150px 75px rgba(255, 183, 77, 0.2); /* Enhanced glowing effect */
   z-index: 1;
   animation: radiate 4s infinite ease-in-out;
 }
 
 @keyframes radiate {
-  0%, 100% {
-    box-shadow: 0 0 50px 25px rgba(255, 255, 255, 0.6), 0 0 100px 50px rgba(255, 255, 255, 0.4), 0 0 150px 75px rgba(255, 183, 77, 0.2);
+  0%,
+  100% {
+    box-shadow: 0 0 50px 25px rgba(255, 255, 255, 0.6),
+      0 0 100px 50px rgba(255, 255, 255, 0.4),
+      0 0 150px 75px rgba(255, 183, 77, 0.2);
   }
   50% {
-    box-shadow: 0 0 70px 35px rgba(255, 255, 255, 0.6), 0 0 120px 60px rgba(255, 255, 255, 0.4), 0 0 170px 85px rgba(255, 183, 77, 0.2);
+    box-shadow: 0 0 70px 35px rgba(255, 255, 255, 0.6),
+      0 0 120px 60px rgba(255, 255, 255, 0.4),
+      0 0 170px 85px rgba(255, 183, 77, 0.2);
   }
 }
 
@@ -148,7 +163,6 @@ body {
   }
 }
 
-
 /* Animation for sliding and fading in from the bottom */
 @keyframes slideInUp {
   0% {
@@ -160,7 +174,6 @@ body {
     opacity: 1;
   }
 }
-
 
 .title-container {
   animation: slideInLeft 1s ease-out forwards;
@@ -177,7 +190,7 @@ body {
 }
 
 .highlight {
-  color: #FFA500; /* Orange color for 'Mitansh Chaudhari' */
+  color: #ffa500; /* Orange color for 'Mitansh Chaudhari' */
 }
 
 /* subtitle container */
@@ -197,7 +210,8 @@ body {
 }
 
 @keyframes jump {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -238,7 +252,6 @@ body {
   border-color: white; /* Change border to white on hover */
 }
 
-
 /* Smoother animation with cubic-bezier for a more natural motion */
 .jump {
   animation: jump 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
@@ -266,12 +279,7 @@ body {
 .about-section,
 .projects-section,
 .contact-section {
-  background: linear-gradient(
-    180deg,
-    #121212,
-    #1f1f1f 50%,
-    #2a2a2a 100%
-  );
+  background: linear-gradient(180deg, #121212, #1f1f1f 50%, #2a2a2a 100%);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -287,6 +295,65 @@ body {
   text-align: center;
 }
 
+/* Footer styling */
+.footer {
+  background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%);
+  padding: 90px 0 20px 0; /* Adjusted padding */
+  text-align: center;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 
+
+.footer .social-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid gray; /* Border around icons */
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  margin-bottom: 60px; /* Extra space between icons and copyright */
+
+}
+
+.footer .social-icon:hover {
+  transform: scale(1.1); /* Enlarge on hover */
+  border-color: white;
+}
+
+/* Arrow-up style */
+.footer-arrow {
+  position: absolute;
+  top: -40px; /* Position arrow slightly above the footer */
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.arrow-up {
+  width: auto;
+  height: 70px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the up arrow */
+.arrow-up:hover {
+  transform: scale(1.2); /* Slight increase in size on hover */
+}
+
+/* Copyright text */
+.copyright {
+  font-size: 15px;
+  color: #ffffff;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
 
