@@ -56,7 +56,7 @@ export default function Home() {
 
         <div className="moon"></div>
 
-        <img src="/images/background/hero-bj.jpg" alt="Background Image" className="background-image" />
+        <img src="/images/background/hero-bg.jpg" alt="Background Image" className="background-image" />
 
         <div className="fireflies" ref={firefliesRef}></div>
 
