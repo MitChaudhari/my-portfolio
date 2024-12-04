@@ -280,11 +280,12 @@ body {
 .projects-section,
 .contact-section {
   background: linear-gradient(180deg, #121212, #1f1f1f 50%, #2a2a2a 100%);
-  height: 100vh;
+  min-height: 100vh; /* Use min-height to allow content to expand */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   color: #ffffff;
+  padding: 60px 20px; /* Add padding for spacing */
 }
 
 .about-title,
@@ -293,7 +294,48 @@ body {
   font-size: 3em;
   color: #ffffff;
   text-align: center;
+  margin-bottom: 40px; /* Add margin below the titles */
 }
+
+/* Container for the portrait and description */
+.portrait-and-description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Space between portrait and description */
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Portrait container */
+.portrait-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Adjust the DotPortrait wrapper */
+.dot-portrait-wrapper {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  position: relative;
+}
+
+.dot-portrait-wrapper canvas {
+  width: 100%;
+  height: auto;
+}
+
+/* About description styling */
+.about-description {
+  flex: 1;
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
 
 /* Footer styling */
 .footer {

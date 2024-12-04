@@ -1,7 +1,7 @@
+// src/pages/index.tsx
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
-// src/pages/index.tsx
 import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
 import Lottie from 'lottie-react';
@@ -10,7 +10,7 @@ import { addJumpEffectToIcons } from '../utils/iconJumpEffect';
 import { handleScroll } from '../utils/handleScroll';
 import Navbar from '../components/Navbar';
 import { EmailIcon, LinkedInIcon, GitHubIcon } from '../components/Icons';
-
+import DotPortrait from '../components/DotPortrait';
 
 export default function Home() {
   const firefliesRef = useRef<HTMLDivElement>(null);
@@ -50,7 +50,7 @@ export default function Home() {
       }
     };
     fetchAnimationData();
-  }, []);  
+  }, []);
 
   return (
     <>
@@ -68,7 +68,11 @@ export default function Home() {
 
         <div className="moon"></div>
 
-        <img src="/images/background/hero-bg.jpg" alt="Background Image" className="background-image" />
+        <img
+          src="/images/background/hero-bg.jpg"
+          alt="Background Image"
+          className="background-image"
+        />
 
         <div className="fireflies" ref={firefliesRef}></div>
 
@@ -82,13 +86,26 @@ export default function Home() {
           <p>Aspiring Software Engineer | Full Stack Web & App Developer</p>
         </div>
         <div className="social-icons-container">
-          <a href="mailto:mitansh46@gmail.com" className="social-icon home-icon email-icon">
+          <a
+            href="mailto:mitansh46@gmail.com"
+            className="social-icon home-icon email-icon"
+          >
             <EmailIcon />
           </a>
-          <a href="https://www.linkedin.com/in/mit01/" target="_blank" rel="noopener noreferrer" className="social-icon home-icon linkedin-icon">
+          <a
+            href="https://www.linkedin.com/in/mit01/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon home-icon linkedin-icon"
+          >
             <LinkedInIcon />
           </a>
-          <a href="https://github.com/MitChaudhari" target="_blank" rel="noopener noreferrer" className="social-icon home-icon github-icon">
+          <a
+            href="https://github.com/MitChaudhari"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon home-icon github-icon"
+          >
             <GitHubIcon />
           </a>
         </div>
@@ -99,21 +116,37 @@ export default function Home() {
           </a>
         </div>
       </div>
+      
       <Navbar />
-
       {/* About Section */}
       <section id="about" className="about-section">
         <h2 className="about-title">About Me</h2>
+        <div className="portrait-and-description">
+          <div className="portrait-container">
+            <DotPortrait />
+          </div>
+          <div className="about-description">
+            <p>
+              {/* Your description goes here */}
+              I'm Mitansh, a passionate software engineer with a love for creating
+              dynamic and interactive web applications. With expertise in full-stack
+              development, I strive to build seamless user experiences and innovative
+              solutions.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="projects-section">
-        <h2 className="about-title">Projects</h2>
+        <h2 className="projects-title">Projects</h2>
+        {/* Your projects go here */}
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="contact-section">
-        <h2 className="about-title">Contact</h2>
+        <h2 className="contact-title">Contact</h2>
+        {/* Your contact form or details go here */}
       </section>
 
       {/* Footer Section */}
@@ -129,10 +162,20 @@ export default function Home() {
           <a href="mailto:mitansh46@gmail.com" className="social-icon email-icon">
             <EmailIcon />
           </a>
-          <a href="https://www.linkedin.com/in/mit01/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin-icon">
+          <a
+            href="https://www.linkedin.com/in/mit01/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon linkedin-icon"
+          >
             <LinkedInIcon />
           </a>
-          <a href="https://github.com/MitChaudhari" target="_blank" rel="noopener noreferrer" className="social-icon github-icon">
+          <a
+            href="https://github.com/MitChaudhari"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-icon github-icon"
+          >
             <GitHubIcon />
           </a>
         </div>
