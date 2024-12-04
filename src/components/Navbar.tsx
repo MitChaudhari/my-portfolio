@@ -25,13 +25,13 @@ const Navbar = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && entry.boundingClientRect.top >= 0) {
             setActiveNav(entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1));
           }
         });
       },
       { threshold: 0.6 }
-    );
+    );    
 
     sections.forEach((id) => {
       const section = document.getElementById(id);

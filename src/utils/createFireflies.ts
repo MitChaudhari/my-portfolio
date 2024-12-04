@@ -3,7 +3,6 @@
 //home page background firefiles effect
 export const createFireflies = (container: HTMLDivElement | null, count: number) => {
     if (!container) return;
-  
     for (let i = 0; i < count; i++) {
       const firefly = document.createElement('div');
       firefly.className = 'firefly';

@@ -5,7 +5,7 @@
 import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
 import Lottie from 'lottie-react';
-import { createFireflies } from '../utils/firefliesEffect';
+import { createFireflies } from '../utils/createFireflies';
 import { addJumpEffectToIcons } from '../utils/iconJumpEffect';
 import { handleScroll } from '../utils/handleScroll';
 import Navbar from '../components/Navbar';
@@ -35,21 +35,22 @@ export default function Home() {
     return cleanupJumpEffect;
   }, []);
 
-  // Arrow-Down Animation
+  // Fetch Arrow-Down & Arrow-up Animation
   useEffect(() => {
-    fetch('/animation/arrow-down.json')
-      .then((response) => response.json())
-      .then((data) => setAnimationData(data))
-      .catch((error) => console.error('Error loading animation:', error));
-  }, []);
-
-    // Fetch arrow-up animation
-    useEffect(() => {
-      fetch('/animation/arrow-up.json')
-        .then((response) => response.json())
-        .then((data) => setArrowUpData(data))
-        .catch((error) => console.error('Error loading arrow-up animation:', error));
-    }, []);
+    const fetchAnimationData = async () => {
+      try {
+        const [arrowDown, arrowUp] = await Promise.all([
+          fetch('/animation/arrow-down.json').then((res) => res.json()),
+          fetch('/animation/arrow-up.json').then((res) => res.json()),
+        ]);
+        setAnimationData(arrowDown);
+        setArrowUpData(arrowUp);
+      } catch (error) {
+        console.error('Error loading animations:', error);
+      }
+    };
+    fetchAnimationData();
+  }, []);  
 
   return (
     <>
