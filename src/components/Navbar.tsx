@@ -2,49 +2,48 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredNav, setHoveredNav] = useState<string | null>(null);
-  const [activeNav, setActiveNav] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState<string>('home');
 
   useEffect(() => {
     const handleScroll = () => {
       const homeHeight = document.getElementById('home')?.offsetHeight || 0;
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY >= homeHeight) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+      setIsVisible(currentScrollY >= homeHeight);
+
+      // Determine active section
+      const sections = ['home', 'about', 'projects', 'contact'];
+      let currentSection = activeNav; // Default to the current activeNav
+
+      for (const id of sections) {
+        const section = document.getElementById(id);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          ) {
+            currentSection = id;
+            break;
+          }
+        }
       }
+
+      setActiveNav(currentSection);
     };
 
-    const sections = ['home', 'about', 'projects', 'contact'];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.boundingClientRect.top >= 0) {
-            setActiveNav(entry.target.id.charAt(0).toUpperCase() + entry.target.id.slice(1));
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );    
-
-    sections.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
+    handleScroll(); // Set initial navbar visibility and activeNav
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      observer.disconnect();
     };
-  }, []);
+  }, [activeNav]);
 
   const handleMouseEnter = (nav: string) => {
     setHoveredNav(nav);
@@ -54,19 +53,18 @@ const Navbar = () => {
     setHoveredNav(null);
   };
 
-	const getNavClass = (nav: string) => {
-		const isHovered = hoveredNav === nav;
-		const isActive = !hoveredNav && activeNav === nav;
-	
-		if (isHovered) {
-			return 'scale-110 text-[#FFA500] opacity-100 font-bold';
-		} else if (isActive) {
-			return 'text-[#FFA500] opacity-100 font-bold';
-		} else {
-			return 'opacity-50 font-bold';
-		}
-	};
-	
+  const getNavClass = (nav: string) => {
+    const isHovered = hoveredNav === nav;
+    const isActive = !hoveredNav && activeNav === nav;
+
+    if (isHovered) {
+      return 'scale-110 text-[#FFA500] opacity-100 font-bold';
+    } else if (isActive) {
+      return 'text-[#FFA500] opacity-100 font-bold';
+    } else {
+      return 'opacity-50 font-bold';
+    }
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -76,6 +74,11 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  const handleAboutClick = () => {
+    closeMenu();
+    window.dispatchEvent(new Event('aboutButtonClick'));
+  };
+
   return (
     <div
       className={`fixed top-0 left-0 w-full h-20 bg-[rgba(14,13,13,0.7)] flex justify-end items-center pr-[3%] transition-opacity duration-300 ${
@@ -83,17 +86,17 @@ const Navbar = () => {
       }`}
     >
       <div className="flex items-center justify-between w-full px-4 md:px-10 lg:px-20">
-			<div className="flex items-center">
-				<Link href="#home" scroll={false}>
-					<Image 
-						src="/images/logo/logo.png" 
-						alt="Logo" 
-						width={40} 
-						height={40} 
-						className="w-auto h-auto cursor-pointer transition-transform duration-300 hover:scale-110"
-					/>
-				</Link>
-			</div>
+        <div className="flex items-center">
+          <Link href="#home" scroll={false}>
+            <Image
+              src="/images/logo/logo.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="w-auto h-auto cursor-pointer transition-transform duration-300 hover:scale-110"
+            />
+          </Link>
+        </div>
 
         {/* Hamburger Menu for Mobile */}
         <div className="md:hidden" onClick={toggleMenu}>
@@ -110,46 +113,18 @@ const Navbar = () => {
             menuOpen ? 'block' : 'hidden'
           } absolute top-20 right-0 w-full md:w-auto md:static md:flex space-y-4 md:space-y-0 md:space-x-8 bg-[rgba(14,13,13,0.9)] md:bg-transparent md:items-center md:justify-end md:flex-row`}
         >
-          <Link href="#home" scroll={false}>
-            <div
-              className={`px-4 py-2 transition-all duration-300 cursor-pointer ${getNavClass('Home')}`}
-              onMouseEnter={() => handleMouseEnter('Home')}
-              onMouseLeave={handleMouseLeave}
-              onClick={closeMenu} 
-            >
-              Home
-            </div>
-          </Link>
-          <Link href="#about" scroll={false}>
-            <div
-              className={`px-6 py-3 transition-all duration-300 cursor-pointer ${getNavClass('About')}`}
-              onMouseEnter={() => handleMouseEnter('About')}
-              onMouseLeave={handleMouseLeave}
-              onClick={closeMenu} 
-            >
-              About
-            </div>
-          </Link>
-          <Link href="#projects" scroll={false}>
-            <div
-              className={`px-6 py-3 transition-all duration-300 cursor-pointer ${getNavClass('Projects')}`}
-              onMouseEnter={() => handleMouseEnter('Projects')}
-              onMouseLeave={handleMouseLeave}
-              onClick={closeMenu} 
-            >
-              Projects
-            </div>
-          </Link>
-          <Link href="#contact" scroll={false}>
-            <div
-              className={`px-6 py-3 transition-all duration-300 cursor-pointer ${getNavClass('Contact')}`}
-              onMouseEnter={() => handleMouseEnter('Contact')}
-              onMouseLeave={handleMouseLeave}
-              onClick={closeMenu} 
-            >
-              Contact
-            </div>
-          </Link>
+          {['home', 'about', 'projects', 'contact'].map((id) => (
+            <Link href={`#${id}`} scroll={false} key={id}>
+              <div
+                className={`px-6 py-3 transition-all duration-300 cursor-pointer ${getNavClass(id)}`}
+                onMouseEnter={() => handleMouseEnter(id)}
+                onMouseLeave={handleMouseLeave}
+                onClick={id === 'about' ? handleAboutClick : closeMenu}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+              </div>
+            </Link>
+          ))}
         </nav>
       </div>
     </div>
