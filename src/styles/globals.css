@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Playwrite US Modern font */
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap");
-
 /* Define a global CSS variable for the font */
 :root {
   --font-playwrite: "Playwrite US Modern", cursive;

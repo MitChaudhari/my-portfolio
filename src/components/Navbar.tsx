@@ -81,7 +81,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-20 bg-[rgba(14,13,13,0.7)] flex justify-end items-center pr-[3%] transition-opacity duration-300 ${
+      className={`fixed top-0 left-0 w-full h-20 bg-black flex justify-end items-center pr-[3%] transition-opacity duration-300 ${
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
     >

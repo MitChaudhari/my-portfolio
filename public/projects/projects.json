@@ -1,0 +1,127 @@
+[
+  {
+    "ProjectName": "ClearPolicy",
+    "QuickDescription": "A Chrome extension simplifying complex privacy policies and terms & conditions.",
+    "DetailedDescription": "ClearPolicy is a lightweight Chrome extension that simplifies the way users interact with privacy policies and terms of use. It leverages OpenAI's advanced capabilities to summarize problematic clauses, empowering users to make informed decisions. The extension supports customizable backends for privacy and personalization.",
+    "Category": ["Cyber Security", "Software Tools and Utilities"],
+    "TechStack": ["JavaScript", "Next.js", "Vercel", "OpenAI API"],
+    "GithubLink": "https://github.com/MitChaudhari/ClearPolicy",
+    "LiveLink": null,
+    "Images": [
+      "public/images/projects/clearpolicy1.png",
+      "public/images/projects/clearpolicy2.png",
+      "public/images/projects/clearpolicy3.png",
+      "public/images/projects/clearpolicy4.png",
+      "public/images/projects/clearpolicy5.png"
+    ]
+  },
+  {
+    "ProjectName": "AssistMe Prototype",
+    "QuickDescription": "A modern prototype designed to enhance students' academic journeys through goal tracking and curated resources.",
+    "DetailedDescription": "AssistMe is a student productivity prototype that allows users to set, track, and achieve academic goals. Featuring a clean UI and visual progress tracking, it provides curated resources and actionable tips. Future enhancements include AI integration for personalized recommendations and secure backend support for user data.",
+    "Category": ["Education and Productivity", "Web Development"],
+    "TechStack": ["Next.js", "React.js", "CSS Modules", "Chart.js"],
+    "GithubLink": "https://github.com/MitChaudhari/assistme-prototype",
+    "LiveLink": "https://assistme-prototype.vercel.app",
+    "Images": [
+      "public/images/projects/assistme1.png",
+      "public/images/projects/assistme2.png",
+      "public/images/projects/assistme3.png",
+      "public/images/projects/assistme4.png",
+      "public/images/projects/assistme5.png",
+      "public/images/projects/assistme6.png",
+      "public/images/projects/assistme7.png"
+    ]
+  },
+  {
+    "ProjectName": "WiFiWalrus",
+    "QuickDescription": "A tool for analyzing public Wi-Fi networks, ensuring safety and reliability, optimized for Windows.",
+    "DetailedDescription": "WiFiWalrus is a user-friendly Wi-Fi network analysis tool designed to identify safe and reliable open Wi-Fi networks in public spaces. It leverages real Wi-Fi data for scanning on Windows, with cross-platform support using simulated data. Built with PyQt5, the application provides features like network ranking, signal strength analysis, and security checks.",
+    "Category": ["Cyber Security", "Desktop Applications"],
+    "TechStack": ["Python", "PyQt5", "Subprocess", "NumPy"],
+    "GithubLink": "https://github.com/MitChaudhari/WiFiWalrus",
+    "LiveLink": null,
+    "Images": [
+      "public/images/projects/wifiwalrus1.png",
+      "public/images/projects/wifiwalrus2.png"
+    ]
+  },
+  {
+    "ProjectName": "MovieVerse",
+    "QuickDescription": "A web app to explore and discover movies with interactive filtering and dynamic content.",
+    "DetailedDescription": "MovieVerse is a web application designed for movie enthusiasts to explore and discover films across genres, years, and languages. It features interactive filtering, dynamic movie cards, a rotating carousel, and a sleek modal for detailed movie information. The app is responsive and optimized for both desktop and mobile devices.",
+    "Category": ["Web Development"],
+    "TechStack": ["JavaScript", "CSS", "HTML", "Bootstrap 5", "JSON", "Vercel"],
+    "GithubLink": "https://github.com/MitChaudhari/movie-explorer",
+    "LiveLink": "https://movie-explorer-lake.vercel.app/",
+    "Images": [
+      "public/images/projects/movieExplorer1.png",
+      "public/images/projects/movieExplorer2.png",
+      "public/images/projects/movieExplorer3.png"
+    ]
+  },
+  {
+    "ProjectName": "BudgetBuddy",
+    "QuickDescription": "A web-based tool for tracking expenses, managing budgets, and analyzing spending habits.",
+    "DetailedDescription": "BudgetBuddy is a personal finance management web application designed to help users track their expenses, set budgets, and analyze spending habits. Featuring an intuitive dashboard, secure user authentication, and interactive charts, it empowers users to make informed financial decisions. The platform supports detailed budget reports and plans for future enhancements like payment reminders.",
+    "Category": ["Web Development"],
+    "TechStack": [
+      "Node.js",
+      "Express.js",
+      "Bootstrap",
+      "Pug",
+      "CSS",
+      "JavaScript",
+      "MongoDB Atlas"
+    ],
+    "GithubLink": "https://github.com/MitChaudhari/BudgetBuddy",
+    "LiveLink": null,
+    "Images": [
+      "public/images/projects/budgetBuddy1.png",
+      "public/images/projects/budgetBuddy2.png",
+      "public/images/projects/budgetBuddy3.png"
+    ]
+  },
+  {
+    "ProjectName": "Ticket Management System",
+    "QuickDescription": "A Java-based system for managing support tickets with role-based access.",
+    "DetailedDescription": "This Java Swing application provides a comprehensive ticket management solution. Users can log in as admin or regular users, with admins having full control over ticket assignment, status updates, and deletion. The system features secure authentication, real-time data representation, and an intuitive interface for creating, updating, and managing support tickets.",
+    "Category": ["Desktop Applications"],
+    "TechStack": ["Java", "Java Swing", "JDBC"],
+    "GithubLink": "https://github.com/MitChaudhari/TicketManagementSystem",
+    "LiveLink": null,
+    "Images": null
+  },
+  {
+    "ProjectName": "Security Device",
+    "QuickDescription": "A project simulating a security device using Finite Automata concepts.",
+    "DetailedDescription": "This project demonstrates the application of Finite Automata concepts by simulating a security device for real-life scenarios. It features two modules: user input-based locking/unlocking and random number generator-based simulations. Outputs include statistics like attempts, state transitions, and unlocking efficiency. Unit tests ensure functionality and coverage.",
+    "Category": ["Software Tools and Utilities"],
+    "TechStack": ["Python", "Eclipse IDE", "Command Line"],
+    "GithubLink": "https://github.com/MitChaudhari/Security_Device",
+    "LiveLink": "https://mitchaudhari.github.io/Security_Device/",
+    "Images": [
+      "public/images/projects/securityDevice1.png",
+      "public/images/projects/securityDevice2.png"
+    ]
+  },
+  {
+    "ProjectName": "Portfolio Website",
+    "QuickDescription": "A dynamic portfolio showcasing projects, skills, and interactive design elements.",
+    "DetailedDescription": "This project is a personal portfolio website designed to highlight professional skills and projects through a modern, interactive user experience. Built with Next.js and Tailwind CSS, the site features advanced animations, responsive design, and themed sections like 'About Me,' 'Projects,' and 'Contact.' Additional integrations include interactive Dot Portrait animations using p5.js, Three.js, and GSAP for smooth transitions and effects. The website is powered by React and utilizes JSON data for structured project organization, hosted on Vercel for optimized performance.",
+    "Category": ["Web Development"],
+    "TechStack": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "p5.js",
+      "GSAP",
+      "Lottie",
+      "Vercel"
+    ],
+    "GithubLink": "https://github.com/MitChaudhari/portfolio",
+    "LiveLink": "https://mittc.dev",
+    "Images": ["public/images/projects/portfolio1.png"]
+  }
+]
