@@ -380,7 +380,7 @@ body {
 /* Project Section Starts Here */
 .projects-section {
   background: linear-gradient(180deg, #2a2a2a 0%, #1e1e1e 100%);
-  height: 100vh;
+  height: 120vh;
   overflow: hidden;
 }
 
@@ -391,7 +391,7 @@ body {
 }
 
 .projects-sidebar {
-  width: 45%;
+  width: 40%;
   /* background: linear-gradient(180deg, #1e1e1e 0%, #0f0f0f 100%); */
   padding: 20px 60px;
   border-right: 1px dotted #ffffff;
@@ -438,7 +438,6 @@ body {
   margin: 0 2px; /* Space around the highlight */
   display: inline-block; /* Keep the highlight snug around the text */
 }
-
 
 .horizontal-line {
   border-top: 1px dotted #ffffff;
@@ -507,21 +506,207 @@ body {
   color: #000000; /* Font color becomes black */
   font-weight: bold;
 }
-
+/* Projects Content container you already have */
 .projects-content {
-  width: 55%;
+  width: 58%;
   overflow-y: auto;
   height: 100%;
   background: linear-gradient(180deg, #2a2a2a 0%, #3a3a3a 100%);
   position: relative;
 }
 
+/* Projects List */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Project Card */
+.project-card {
+  display: flex;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative; /* Ensure :hover applies to the entire card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect for Project Card */
+.project-card:hover {
+  transform: scale(1.02); /* Slightly enlarge the card */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow effect */
+}
+
+/* Left Side */
+.project-card-left,
+.project-card-right {
+  padding: 20px;
+}
+
+.project-card-left {
+  width: 40%;
+  background-color: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Right Side */
+.project-card-right {
+  width: 60%;
+  position: relative;
+  overflow: hidden;
+  background-color: #3a3a3a; /* fallback if no image */
+}
+
+/* Pseudo-element for background image */
+.project-card-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--project-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: filter 0.3s ease;
+  z-index: 1;
+}
+
+/* Overlay content (hidden by default) */
+.project-card-right-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+}
+
+.project-card-right-content h4 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #ffffff;
+}
+
+.project-card-right-content p {
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+/* Hover Effects for showing overlay and blurring image */
+.project-card:hover .project-card-right::before {
+  filter: blur(4px) brightness(0.8);
+}
+
+.project-card:hover .project-card-right-content {
+  opacity: 1;
+}
+
+/* Project Name */
+.project-name {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Quick Description */
+.project-quick-description {
+  color: #cccccc;
+  margin-bottom: 15px;
+}
+
+/* Tech Stack */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tech-item {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+/* Project Links */
+.project-links {
+  display: flex;
+  gap: 10px;
+}
+
+.Gitproject-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: rgb(12, 18, 3);
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.Gitproject-button:hover {
+  background-color: darkolivegreen;
+  transform: scale(1.05);
+}
+
+.Gitproject-button svg {
+  fill: #ffffff;
+  width: 16px;
+  height: 16px;
+}
+
+/* LiveProjectButton */
+.Liveproject-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.Liveproject-button:hover {
+  background-color: #c65050;
+  transform: scale(1.05);
+}
+
+.Liveproject-button svg {
+  fill: #ffffff;
+  width: 16px;
+  height: 16px;
+}
+
+/* Projects Scrollable */
 .projects-scrollable {
   padding: 20px;
   position: relative;
   box-sizing: border-box;
 }
 
+/* Vertical Line */
 .vertical-line {
   position: absolute;
   left: 0;
@@ -529,12 +714,6 @@ body {
   bottom: 0;
   border-left: 1px dotted #ffffff;
 }
-
-.projects-placeholder {
-  /* Placeholder content for scrolling */
-  height: 2000px;
-}
-
 
 
 /* Style for Contact Section */

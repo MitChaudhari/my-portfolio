@@ -8,11 +8,11 @@
     "GithubLink": "https://github.com/MitChaudhari/ClearPolicy",
     "LiveLink": null,
     "Images": [
-      "public/images/projects/clearpolicy1.png",
-      "public/images/projects/clearpolicy2.png",
-      "public/images/projects/clearpolicy3.png",
-      "public/images/projects/clearpolicy4.png",
-      "public/images/projects/clearpolicy5.png"
+      "/images/projects/clearpolicy1.png",
+      "/images/projects/clearpolicy2.png",
+      "/images/projects/clearpolicy3.png",
+      "/images/projects/clearpolicy4.png",
+      "/images/projects/clearpolicy5.png"
     ]
   },
   {
@@ -24,13 +24,13 @@
     "GithubLink": "https://github.com/MitChaudhari/assistme-prototype",
     "LiveLink": "https://assistme-prototype.vercel.app",
     "Images": [
-      "public/images/projects/assistme1.png",
-      "public/images/projects/assistme2.png",
-      "public/images/projects/assistme3.png",
-      "public/images/projects/assistme4.png",
-      "public/images/projects/assistme5.png",
-      "public/images/projects/assistme6.png",
-      "public/images/projects/assistme7.png"
+      "/images/projects/assistme3.png",
+      "/images/projects/assistme2.png",
+      "/images/projects/assistme1.png",
+      "/images/projects/assistme4.png",
+      "/images/projects/assistme5.png",
+      "/images/projects/assistme6.png",
+      "/images/projects/assistme7.png"
     ]
   },
   {
@@ -42,8 +42,8 @@
     "GithubLink": "https://github.com/MitChaudhari/WiFiWalrus",
     "LiveLink": null,
     "Images": [
-      "public/images/projects/wifiwalrus1.png",
-      "public/images/projects/wifiwalrus2.png"
+      "/images/projects/wifiwalrus1.png",
+      "/images/projects/wifiwalrus2.png"
     ]
   },
   {
@@ -55,9 +55,9 @@
     "GithubLink": "https://github.com/MitChaudhari/movie-explorer",
     "LiveLink": "https://movie-explorer-lake.vercel.app/",
     "Images": [
-      "public/images/projects/movieExplorer1.png",
-      "public/images/projects/movieExplorer2.png",
-      "public/images/projects/movieExplorer3.png"
+      "/images/projects/movieExplorer1.png",
+      "/images/projects/movieExplorer2.png",
+      "/images/projects/movieExplorer3.png"
     ]
   },
   {
@@ -77,9 +77,9 @@
     "GithubLink": "https://github.com/MitChaudhari/BudgetBuddy",
     "LiveLink": null,
     "Images": [
-      "public/images/projects/budgetBuddy1.png",
-      "public/images/projects/budgetBuddy2.png",
-      "public/images/projects/budgetBuddy3.png"
+      "/images/projects/budgetBuddy1.png",
+      "/images/projects/budgetBuddy2.png",
+      "/images/projects/budgetBuddy3.png"
     ]
   },
   {
@@ -90,7 +90,11 @@
     "TechStack": ["Java", "Java Swing", "JDBC"],
     "GithubLink": "https://github.com/MitChaudhari/TicketManagementSystem",
     "LiveLink": null,
-    "Images": null
+    "Images": [
+      "/images/projects/ticketingSystem1.png",
+      "/images/projects/budgetBuddy2.png",
+      "/images/projects/budgetBuddy3.png"
+    ]
   },
   {
     "ProjectName": "Security Device",
@@ -101,8 +105,8 @@
     "GithubLink": "https://github.com/MitChaudhari/Security_Device",
     "LiveLink": "https://mitchaudhari.github.io/Security_Device/",
     "Images": [
-      "public/images/projects/securityDevice1.png",
-      "public/images/projects/securityDevice2.png"
+      "/images/projects/securityDevice1.png",
+      "/images/projects/securityDevice2.png"
     ]
   },
   {
@@ -122,6 +126,6 @@
     ],
     "GithubLink": "https://github.com/MitChaudhari/portfolio",
     "LiveLink": "https://mittc.dev",
-    "Images": ["public/images/projects/portfolio1.png"]
+    "Images": ["/images/projects/portfolio1.png"]
   }
 ]

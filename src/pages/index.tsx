@@ -11,6 +11,8 @@ import { handleScroll } from "../utils/handleScroll";
 import Navbar from "../components/Navbar";
 import { EmailIcon, LinkedInIcon, GitHubIcon } from "../components/Icons";
 import DotPortrait from "../components/DotPortrait";
+import projectsData from '../data/projects.json';
+import ProjectCard from '../components/ProjectCard';
 
 export default function Home() {
   const firefliesRef = useRef<HTMLDivElement>(null);
@@ -223,27 +225,32 @@ export default function Home() {
             </ul>
           </div>
 
-
-          {/* Right Scrollable Content (55% width) */}
+          {/* Right Scrollable Content */}
           <div className="projects-content">
             <div className="projects-scrollable">
               {/* Vertical Dotted Line */}
               <div className="vertical-line"></div>
-              {/* Placeholder for projects */}
-              <div className="projects-placeholder">
-                <p>Placeholder for projects</p>
-                {/* Add more placeholder content to enable scrolling */}
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p>
-                  Sed do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua.
-                </p>
-                {/* ...additional content... */}
+              {/* Projects List */}
+              <div className="projects-list">
+                {projectsData.map((project, index) => (
+                  <ProjectCard
+                    key={index}
+                    ProjectName={project.ProjectName}
+                    QuickDescription={project.QuickDescription}
+                    DetailedDescription={project.DetailedDescription}
+                    Category={project.Category}
+                    TechStack={project.TechStack}
+                    GithubLink={project.GithubLink}
+                    LiveLink={project.LiveLink}
+                    Images={project.Images}
+                  />
+                ))}
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Contact Section */}
       <section id="contact" className="contact-section">
