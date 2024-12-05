@@ -2,20 +2,34 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
-import Head from 'next/head';
-import { useEffect, useRef, useState } from 'react';
-import Lottie from 'lottie-react';
-import { createFireflies } from '../utils/createFireflies';
-import { addJumpEffectToIcons } from '../utils/iconJumpEffect';
-import { handleScroll } from '../utils/handleScroll';
-import Navbar from '../components/Navbar';
-import { EmailIcon, LinkedInIcon, GitHubIcon } from '../components/Icons';
-import DotPortrait from '../components/DotPortrait';
+import Head from "next/head";
+import { useEffect, useRef, useState } from "react";
+import Lottie from "lottie-react";
+import { createFireflies } from "../utils/createFireflies";
+import { addJumpEffectToIcons } from "../utils/iconJumpEffect";
+import { handleScroll } from "../utils/handleScroll";
+import Navbar from "../components/Navbar";
+import { EmailIcon, LinkedInIcon, GitHubIcon } from "../components/Icons";
+import DotPortrait from "../components/DotPortrait";
 
 export default function Home() {
   const firefliesRef = useRef<HTMLDivElement>(null);
   const [animationData, setAnimationData] = useState(null);
   const [arrowUpData, setArrowUpData] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+  // Handler for category button click
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategories((prevSelected) => {
+      if (prevSelected.includes(category)) {
+        // Remove category from selected
+        return prevSelected.filter((cat) => cat !== category);
+      } else {
+        // Add category to selected
+        return [...prevSelected, category];
+      }
+    });
+  };
 
   // Home page background fireflies effect
   useEffect(() => {
@@ -23,7 +37,7 @@ export default function Home() {
 
     return () => {
       if (firefliesRef.current) {
-        firefliesRef.current.innerHTML = '';
+        firefliesRef.current.innerHTML = "";
       }
     };
   }, []);
@@ -40,17 +54,19 @@ export default function Home() {
     const fetchAnimationData = async () => {
       try {
         const [arrowDown, arrowUp] = await Promise.all([
-          fetch('/animation/arrow-down.json').then((res) => res.json()),
-          fetch('/animation/arrow-up.json').then((res) => res.json()),
+          fetch("/animation/arrow-down.json").then((res) => res.json()),
+          fetch("/animation/arrow-up.json").then((res) => res.json()),
         ]);
         setAnimationData(arrowDown);
         setArrowUpData(arrowUp);
       } catch (error) {
-        console.error('Error loading animations:', error);
+        console.error("Error loading animations:", error);
       }
     };
     fetchAnimationData();
-  }, []);
+  }, 
+  []);
+
 
   return (
     <>
@@ -106,8 +122,10 @@ export default function Home() {
         </div>
 
         <div className="lottie-animation-container">
-          <a href="#about" onClick={(event) => handleScroll(event, 'about')}>
-            {animationData && <Lottie animationData={animationData} loop={true} />}
+          <a href="#about" onClick={(event) => handleScroll(event, "about")}>
+            {animationData && (
+              <Lottie animationData={animationData} loop={true} />
+            )}
           </a>
         </div>
       </div>
@@ -122,19 +140,45 @@ export default function Home() {
           <div className="about-description card">
             <h2 className="about-title">About Me</h2>
             <div className="about-text">
-            <p>
-              Like a <span className="highlight-sun">traveler</span> standing on the edge of a cliff, watching the <span className="highlight-sun">golden sun</span> dip below the horizon, I find myself at the beginning of an extraordinary journey. The <span className="highlight-river">winding river</span> below reflects the twists and turns of my path—each challenge I’ve embraced and every lesson I’ve gathered along the way.
-            </p>
-            <p>
-              As a recent graduate of IIT Chicago and a <span className="highlight-engineer">software engineer</span> by craft, I see my career as the <span className="highlight-house">house in the hills</span>, its warm light burning with <span className="highlight-light">curiosity</span>, <span className="highlight-light">creativity</span>, and <span className="highlight-light">purpose</span>. Each <span className="highlight-code">line of code</span> I write is a step forward on this journey—building bridges, exploring uncharted horizons, and shaping a future full of possibilities.
-            </p>
-            <p>
-              I believe that great <span className="highlight-engineer">engineering</span>, like great journeys, is a balance of <span className="highlight-balance">precision</span> and <span className="highlight-balance">imagination</span>. As I take my next steps, I carry with me a <span className="highlight-drive">passion for creating</span>, a <span className="highlight-drive">resilience forged through challenges</span>, and the drive to leave a <span className="highlight-sun">spark of light</span> wherever I go.
-            </p>
-            <p>
-              -mitt✌️
-            </p>
-
+              <p>
+                Like a <span className="highlight-sun">traveler</span> standing
+                on the edge of a cliff, watching the{" "}
+                <span className="highlight-sun">golden sun</span> dip below the
+                horizon, I find myself at the beginning of an extraordinary
+                journey. The{" "}
+                <span className="highlight-river">winding river</span> below
+                reflects the twists and turns of my path—each challenge I’ve
+                embraced and every lesson I’ve gathered along the way.
+              </p>
+              <p>
+                As a recent graduate of IIT Chicago and a{" "}
+                <span className="highlight-engineer">software engineer</span> by
+                craft, I see my career as the{" "}
+                <span className="highlight-house">house in the hills</span>, its
+                warm light burning with{" "}
+                <span className="highlight-light">curiosity</span>,{" "}
+                <span className="highlight-light">creativity</span>, and{" "}
+                <span className="highlight-light">purpose</span>. Each{" "}
+                <span className="highlight-code">line of code</span> I write is
+                a step forward on this journey—building bridges, exploring
+                uncharted horizons, and shaping a future full of possibilities.
+              </p>
+              <p>
+                I believe that great{" "}
+                <span className="highlight-engineer">engineering</span>, like
+                great journeys, is a balance of{" "}
+                <span className="highlight-balance">precision</span> and{" "}
+                <span className="highlight-balance">imagination</span>. As I
+                take my next steps, I carry with me a{" "}
+                <span className="highlight-drive">passion for creating</span>, a{" "}
+                <span className="highlight-drive">
+                  resilience forged through challenges
+                </span>
+                , and the drive to leave a{" "}
+                <span className="highlight-sun">spark of light</span> wherever I
+                go.
+              </p>
+              <p>-mitt✌️</p>
             </div>
           </div>
         </div>
@@ -142,8 +186,63 @@ export default function Home() {
 
       {/* Projects Section */}
       <section id="projects" className="projects-section">
-        <h2 className="projects-title">Projects</h2>
-        {/* Your projects go here */}
+        <div className="projects-container">
+          {/* Left Fixed Sidebar */}
+          <div className="projects-sidebar">
+            <h2 className="projects-title">Projects</h2>
+            <h3 className="projects-subtitle">
+              These projects offer a glimpse into my journey of
+              <span className="highlight"> innovation</span> and{" "}
+              <span className="highlight1">growth</span>—each a milestone built
+              <span className="highlight-special">'one line of code'</span> at a
+              time.
+            </h3>
+            <div className="horizontal-line"></div>
+            <ul className="category-list">
+              {[
+                { id: "web-development", label: "Web Development" },
+                { id: "cyber-security", label: "Cyber Security" },
+                { id: "desktop-applications", label: "Desktop Applications" },
+                { id: "software-tools", label: "Software Tools and Utilities" },
+                { id: "education-productivity", label: "Education and Productivity" },
+              ].map((category) => (
+                <li
+                  key={category.id}
+                  className={`category-item ${category.id}`}
+                >
+                  <button
+                    className={`category-button ${
+                      selectedCategories.includes(category.id) ? "selected" : ""
+                    }`}
+                    onClick={() => handleCategoryClick(category.id)}
+                  >
+                    {category.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+
+          {/* Right Scrollable Content (55% width) */}
+          <div className="projects-content">
+            <div className="projects-scrollable">
+              {/* Vertical Dotted Line */}
+              <div className="vertical-line"></div>
+              {/* Placeholder for projects */}
+              <div className="projects-placeholder">
+                <p>Placeholder for projects</p>
+                {/* Add more placeholder content to enable scrolling */}
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>
+                  Sed do eiusmod tempor incididunt ut labore et dolore magna
+                  aliqua.
+                </p>
+                {/* ...additional content... */}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Contact Section */}
@@ -156,13 +255,20 @@ export default function Home() {
       <footer className="footer">
         <div className="footer-arrow">
           {arrowUpData && (
-            <a href="#home" onClick={(event) => handleScroll(event, 'home')}>
-              <Lottie animationData={arrowUpData} loop={true} className="arrow-up" />
+            <a href="#home" onClick={(event) => handleScroll(event, "home")}>
+              <Lottie
+                animationData={arrowUpData}
+                loop={true}
+                className="arrow-up"
+              />
             </a>
           )}
         </div>
         <div className="social-icons-container">
-          <a href="mailto:mitansh46@gmail.com" className="social-icon email-icon">
+          <a
+            href="mailto:mitansh46@gmail.com"
+            className="social-icon email-icon"
+          >
             <EmailIcon />
           </a>
           <a

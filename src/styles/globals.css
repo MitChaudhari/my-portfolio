@@ -238,7 +238,6 @@ body {
   border-color: white; /* Change border to white on hover */
 }
 
-/* Smoother animation with cubic-bezier for a more natural motion */
 .jump {
   animation: jump 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
@@ -261,28 +260,7 @@ body {
   transform: translate(-50%, -50%) scale(1.2); /* Pop-out effect on hover */
 }
 
-/* General styles for sections */
-.projects-section,
-.contact-section {
-  background: linear-gradient(180deg, #121212, #1f1f1f 50%, #2a2a2a 100%);
-  min-height: 100vh; /* Use min-height to allow content to expand */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #ffffff;
-  padding: 60px 20px; /* Add padding for spacing */
-}
-
-.projects-title,
-.contact-title {
-  font-size: 3em;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 40px; /* Add margin below the titles */
-  font-family: var(--font-playwrite); /* Apply the Playwrite font */
-}
-
-/* General styles for sections */
+/* Style for About Me Section Begins Here */
 .about-section {
   background: linear-gradient(180deg, #121212, #1f1f1f 50%, #2a2a2a 100%);
   min-height: 100vh;
@@ -298,7 +276,7 @@ body {
   color: #f5a623; /* Golden color for the title */
   text-align: center;
   margin-bottom: 20px;
-  font-family: var(--font-playwrite);
+  font-family: 'Playwrite US Modern', serif; /* Use Playwrite */
 }
 
 /* Container for the portrait and description */
@@ -316,7 +294,7 @@ body {
 .portrait-container {
   flex: 1;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 /* About description styling */
@@ -397,6 +375,185 @@ body {
 .dot-portrait-wrapper canvas {
   width: 100%;
   height: auto;
+}
+
+/* Project Section Starts Here */
+.projects-section {
+  background: linear-gradient(180deg, #2a2a2a 0%, #1e1e1e 100%);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.projects-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.projects-sidebar {
+  width: 45%;
+  /* background: linear-gradient(180deg, #1e1e1e 0%, #0f0f0f 100%); */
+  padding: 20px 60px;
+  border-right: 1px dotted #ffffff;
+  box-sizing: border-box;
+}
+
+.projects-title {
+  font-size: 2.5em;
+  color: #ffffff;
+  font-family: var(--font-playwrite);
+  margin: 0;
+}
+.projects-subtitle {
+  font-size: 1.3em;
+  color: #cccccc;
+  margin-top: 10px;
+  font-family: 'Beiruti', sans-serif; /* Use Beiruti */
+
+}
+
+.projects-subtitle .highlight {
+  background-color:lightcoral; 
+  color: black; /* White text */
+  border-radius: 4px; /* Rounded corners */
+  padding: 0px 3px; /* Add padding for visual clarity */
+  margin: 0 2px; /* Space around the highlight */
+  display: inline-block; /* Keep the highlight snug around the text */
+}
+.projects-subtitle .highlight1 {
+  background-color:rgb(250, 226, 119); 
+  color: black; /* White text */
+  border-radius: 4px; /* Rounded corners */
+  padding: 0px 3px; /* Add padding for visual clarity */
+  margin: 0 2px; /* Space around the highlight */
+  display: inline-block; /* Keep the highlight snug around the text */
+}
+
+.projects-subtitle .highlight-special {
+  background-color:darkolivegreen; /* Golden yellow */
+  color: white; /* White text */
+  font-style: italic;
+  border-radius: 5px; /* Rounded corners */
+  padding: 0px 3px; /* Add padding for visual clarity */
+  margin: 0 2px; /* Space around the highlight */
+  display: inline-block; /* Keep the highlight snug around the text */
+}
+
+
+.horizontal-line {
+  border-top: 1px dotted #ffffff;
+  margin: 20px auto;
+  width: 100%
+}
+
+/* Category List */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start;
+}
+
+/* Category Items */
+.category-item {
+  list-style: none;
+}
+
+/* Define CSS variables for category colors */
+.category-item.web-development {
+  --category-color: #4fc3f7;
+}
+
+.category-item.cyber-security {
+  --category-color: #d3d2ff;
+}
+
+.category-item.desktop-applications {
+  --category-color: #deffd2;
+}
+
+.category-item.software-tools {
+  --category-color: #ffded2;
+}
+
+.category-item.education-productivity {
+  --category-color: #b7dbd8;
+}
+
+/* Category Buttons */
+.category-button {
+  font-size: 0.9em;
+  border-radius: 20px;
+  background-color: #3a3a3a;
+  color: var(--category-color, #ffffff); /* Use the CSS variable */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-family: inherit;
+}
+
+/* Hover Effect */
+.category-button:hover {
+  background-color: #282828;
+  transform: scale(1.05);
+}
+
+/* Selected State */
+.category-button.selected {
+  background-color: var(--category-color, #ffffff); /* Use the category color */
+  color: #000000; /* Font color becomes black */
+  font-weight: bold;
+}
+
+.projects-content {
+  width: 55%;
+  overflow-y: auto;
+  height: 100%;
+  background: linear-gradient(180deg, #2a2a2a 0%, #3a3a3a 100%);
+  position: relative;
+}
+
+.projects-scrollable {
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.vertical-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-left: 1px dotted #ffffff;
+}
+
+.projects-placeholder {
+  /* Placeholder content for scrolling */
+  height: 2000px;
+}
+
+
+
+/* Style for Contact Section */
+.contact-section {
+  background: linear-gradient(180deg, #121212, #1f1f1f 50%, #2a2a2a 100%);
+  min-height: 100vh; /* Use min-height to allow content to expand */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  padding: 60px 20px; /* Add padding for spacing */
+}
+
+.contact-title {
+  font-size: 3em;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px; /* Add margin below the titles */
+  font-family: var(--font-playwrite); /* Apply the Playwrite font */
 }
 
 /* Footer styling */

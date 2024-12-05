@@ -39,3 +39,6 @@ next-env.d.ts
 .next/
 dist/
 
+.vscode/settings.json
+/.vscode
+.vscode/settings.json
