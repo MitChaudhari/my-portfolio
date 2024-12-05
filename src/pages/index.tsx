@@ -62,12 +62,7 @@ export default function Home() {
 
       {/* Home Section */}
       <div id="home" className="home-container">
-        <div className="development-banner">
-          <p>This website is under development 🚧</p>
-        </div>
-
         <div className="moon"></div>
-
         <img
           src="/images/background/hero-bg.jpg"
           alt="Background Image"
