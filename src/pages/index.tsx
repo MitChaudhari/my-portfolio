@@ -116,23 +116,31 @@ export default function Home() {
           </a>
         </div>
       </div>
-      
       <Navbar />
+
       {/* About Section */}
       <section id="about" className="about-section">
-        <h2 className="about-title">About Me</h2>
         <div className="portrait-and-description">
           <div className="portrait-container">
             <DotPortrait />
           </div>
-          <div className="about-description">
+          <div className="about-description card">
+            <h2 className="about-title">About Me</h2>
+            <div className="about-text">
             <p>
-              {/* Your description goes here */}
-              I'm Mitansh, a passionate software engineer with a love for creating
-              dynamic and interactive web applications. With expertise in full-stack
-              development, I strive to build seamless user experiences and innovative
-              solutions.
+              Like a <span className="highlight-sun">traveler</span> standing on the edge of a cliff, watching the <span className="highlight-sun">golden sun</span> dip below the horizon, I find myself at the beginning of an extraordinary journey. The <span className="highlight-river">winding river</span> below reflects the twists and turns of my path—each challenge I’ve embraced and every lesson I’ve gathered along the way.
             </p>
+            <p>
+              As a recent graduate of IIT Chicago and a <span className="highlight-engineer">software engineer</span> by craft, I see my career as the <span className="highlight-house">house in the hills</span>, its warm light burning with <span className="highlight-light">curiosity</span>, <span className="highlight-light">creativity</span>, and <span className="highlight-light">purpose</span>. Each <span className="highlight-code">line of code</span> I write is a step forward on this journey—building bridges, exploring uncharted horizons, and shaping a future full of possibilities.
+            </p>
+            <p>
+              I believe that great <span className="highlight-engineer">engineering</span>, like great journeys, is a balance of <span className="highlight-balance">precision</span> and <span className="highlight-balance">imagination</span>. As I take my next steps, I carry with me a <span className="highlight-drive">passion for creating</span>, a <span className="highlight-drive">resilience forged through challenges</span>, and the drive to leave a <span className="highlight-sun">spark of light</span> wherever I go.
+            </p>
+            <p>
+              -mitt✌️
+            </p>
+
+            </div>
           </div>
         </div>
       </section>

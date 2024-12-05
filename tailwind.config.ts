@@ -6,6 +6,13 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        playwrite: ['var(--font-playwrite)'], // Add the Playwrite font
+      },
+    },
+  },
   plugins: [],
 };
 
