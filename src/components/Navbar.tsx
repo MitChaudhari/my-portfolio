@@ -37,7 +37,6 @@ const Navbar = () => {
     };
 
     handleScroll(); // Set initial navbar visibility and activeNav
-
     window.addEventListener('scroll', handleScroll);
 
     return () => {
@@ -79,6 +78,11 @@ const Navbar = () => {
     window.dispatchEvent(new Event('aboutButtonClick'));
   };
 
+  // Hide navbar unless we are in the 'contact' section
+  if (activeNav !== 'contact') {
+    return null; // No navbar visible unless on the contact section
+  }
+
   return (
     <div
       className={`fixed top-0 left-0 w-full h-20 bg-black flex justify-end items-center pr-[3%] transition-opacity duration-300 ${
@@ -107,7 +111,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links (only on contact) */}
         <nav
           className={`${
             menuOpen ? 'block' : 'hidden'

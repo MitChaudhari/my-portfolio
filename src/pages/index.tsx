@@ -11,8 +11,8 @@ import { handleScroll } from "../utils/handleScroll";
 import Navbar from "../components/Navbar";
 import { EmailIcon, LinkedInIcon, GitHubIcon } from "../components/Icons";
 import DotPortrait from "../components/DotPortrait";
-import projectsData from '../data/projects.json';
-import ProjectCard from '../components/ProjectCard';
+import projectsData from "../data/projects.json";
+import ProjectCard from "../components/ProjectCard";
 
 export default function Home() {
   const firefliesRef = useRef<HTMLDivElement>(null);
@@ -32,6 +32,27 @@ export default function Home() {
       }
     });
   };
+
+  // Category map to convert from id to label
+  const categoryMap: Record<string, string> = {
+    "web-development": "Web Development",
+    "cyber-security": "Cyber Security",
+    "desktop-applications": "Desktop Applications",
+    "software-tools": "Software Tools and Utilities",
+    "education-productivity": "Education and Productivity",
+  };
+
+  // Derive selected category labels based on selected category IDs
+  const selectedCategoryLabels = selectedCategories.map(
+    (id) => categoryMap[id]
+  );
+  // Filter the projects based on selected categories
+  const filteredProjects =
+    selectedCategories.length === 0
+      ? projectsData
+      : projectsData.filter((project) =>
+          project.Category.some((cat) => selectedCategoryLabels.includes(cat))
+        );
 
   // Home page background fireflies effect
   useEffect(() => {
@@ -66,9 +87,7 @@ export default function Home() {
       }
     };
     fetchAnimationData();
-  }, 
-  []);
-
+  }, []);
 
   return (
     <>
@@ -124,7 +143,13 @@ export default function Home() {
         </div>
 
         <div className="lottie-animation-container">
-          <a href="#about" onClick={(event) => handleScroll(event, "about")}>
+          <a
+            href="#about"
+            onClick={(event) => {
+              handleScroll(event, "about");
+              window.dispatchEvent(new Event("aboutButtonClick"));
+            }}
+          >
             {animationData && (
               <Lottie animationData={animationData} loop={true} />
             )}
@@ -206,7 +231,10 @@ export default function Home() {
                 { id: "cyber-security", label: "Cyber Security" },
                 { id: "desktop-applications", label: "Desktop Applications" },
                 { id: "software-tools", label: "Software Tools and Utilities" },
-                { id: "education-productivity", label: "Education and Productivity" },
+                {
+                  id: "education-productivity",
+                  label: "Education and Productivity",
+                },
               ].map((category) => (
                 <li
                   key={category.id}
@@ -223,6 +251,21 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+            {/* Nav buttons */}
+            <div className="project-nav-buttons">
+              <a
+                href="#about"
+                className="project-nav-button"
+                onClick={() =>
+                  window.dispatchEvent(new Event("aboutButtonClick"))
+                }
+              >
+                About
+              </a>
+              <a href="#contact" className="project-nav-button">
+                Contact
+              </a>
+            </div>
           </div>
 
           {/* Right Scrollable Content */}
@@ -232,7 +275,7 @@ export default function Home() {
               <div className="vertical-line"></div>
               {/* Projects List */}
               <div className="projects-list">
-                {projectsData.map((project, index) => (
+                {filteredProjects.map((project, index) => (
                   <ProjectCard
                     key={index}
                     ProjectName={project.ProjectName}
@@ -251,12 +294,38 @@ export default function Home() {
         </div>
       </section>
 
+{/* Contact Section */}
+<section id="contact" className="contact-section">
+  <h2 className="contact-title">Contact Me</h2>
+  <div className="contact-container">
+    <p className="contact-header">
+      Interested in working together or have any questions?<br/>
+      I'd love to hear from you!
+    </p>
+    <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+      <input
+        type="text"
+        className="contact-input"
+        placeholder="Your Name"
+        required
+      />
+      <input
+        type="email"
+        className="contact-input"
+        placeholder="Your Email"
+        required
+      />
+      <textarea
+        className="contact-textarea"
+        placeholder="Your Message"
+        rows={6}
+        required
+      ></textarea>
+      <button type="submit" className="contact-submit">Send Message</button>
+    </form>
+  </div>
+</section>
 
-      {/* Contact Section */}
-      <section id="contact" className="contact-section">
-        <h2 className="contact-title">Contact</h2>
-        {/* Your contact form or details go here */}
-      </section>
 
       {/* Footer Section */}
       <footer className="footer">

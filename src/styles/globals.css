@@ -506,6 +506,30 @@ body {
   color: #000000; /* Font color becomes black */
   font-weight: bold;
 }
+
+/* Project Page Nav buttons */
+.project-nav-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.project-nav-button {
+  background: #000000; /* Black background */
+  color: #f5a623; /* Golden font color */
+  border-radius: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.project-nav-button:hover {
+  background: #f5a623;
+  color: #000000;
+  transform: scale(1.05);
+}
+
 /* Projects Content container you already have */
 .projects-content {
   width: 58%;
@@ -582,24 +606,30 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   opacity: 0;
   transition: opacity 0.3s ease;
   color: #ffffff;
-  text-align: center;
+  text-align: left;
   padding: 20px;
+  transition: opacity 0.3s ease; /* Smooth fade-in */
 }
 
 .project-card-right-content h4 {
   margin-bottom: 10px;
-  font-size: 1.2em;
+  font-size: 1.5em; /* Larger font size */
+  font-weight: bold; /* Make it bold */
   color: #ffffff;
+  transform: translateX(-100%); /* Initial position (off-screen to the left) */
+  transition: transform 0.4s ease; /* Slide-in animation */
 }
 
 .project-card-right-content p {
-  font-size: 0.9em;
-  line-height: 1.4;
+  font-size: 1em; /* Adjust font size */
+  line-height: 1.6;
   color: #ffffff;
+  transform: translateX(-100%); /* Initial position (off-screen to the left) */
+  transition: transform 0.5s ease; /* Slide-in animation, slightly delayed */
 }
 
 /* Hover Effects for showing overlay and blurring image */
@@ -609,6 +639,11 @@ body {
 
 .project-card:hover .project-card-right-content {
   opacity: 1;
+}
+
+.project-card:hover .project-card-right-content h4,
+.project-card:hover .project-card-right-content p {
+  transform: translateX(0); /* Slide-in from the left */
 }
 
 /* Project Name */
@@ -715,25 +750,121 @@ body {
   border-left: 1px dotted #ffffff;
 }
 
-
-/* Style for Contact Section */
+/* Contact Section */
+/* Start the contact background at #1e1e1e to match the end of the projects section gradient */
 .contact-section {
-  background: linear-gradient(180deg, #121212, #1f1f1f 50%, #2a2a2a 100%);
-  min-height: 100vh; /* Use min-height to allow content to expand */
+  background: linear-gradient(180deg, #1e1e1e 0%, #121212 100%);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #ffffff;
-  padding: 60px 20px; /* Add padding for spacing */
+  padding: 60px 20px;
 }
 
+/* Contact Title */
 .contact-title {
+  margin-top: 20px;
   font-size: 3em;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 40px; /* Add margin below the titles */
-  font-family: var(--font-playwrite); /* Apply the Playwrite font */
+  margin-bottom: 40px;
+  font-family: var(--font-playwrite);
 }
+
+/* Contact Container */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px; /* Limit form width for better readability */
+  background-color: #1f1f1f; /* Slightly lighter than background to stand out */
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+/* Contact Heading / Subtitle */
+.contact-header {
+  font-size: 1.2em;
+  color: #cccccc;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Fields */
+.contact-input, .contact-textarea {
+  background: #2a2a2a;
+  border: 1px solid #444444;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1em;
+  width: 100%;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  font-family: inherit;
+}
+
+/* Placeholder styling for inputs */
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: #aaaaaa;
+}
+
+/* Hover/Focus states */
+.contact-input:hover, .contact-textarea:hover {
+  background: #333333;
+}
+.contact-input:focus, .contact-textarea:focus {
+  outline: none;
+  border-color: #f5a623; /* Golden highlight for focus */
+  background: #333333;
+}
+
+/* Submit Button */
+.contact-submit {
+  background: #000000;
+  color: #f5a623;
+  border: 1px solid #f5a623;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1em;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.contact-submit:hover {
+  background: #f5a623;
+  color: #000000;
+  transform: scale(1.05);
+}
+
+/* For a nice fade/entrance effect (Optional) */
+.contact-container {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Footer styling */
 .footer {
