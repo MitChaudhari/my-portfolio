@@ -231,10 +231,7 @@ export default function Home() {
                 { id: "cyber-security", label: "Cyber Security" },
                 { id: "desktop-applications", label: "Desktop Applications" },
                 { id: "software-tools", label: "Software Tools and Utilities" },
-                {
-                  id: "education-productivity",
-                  label: "Education and Productivity",
-                },
+                { id: "education-productivity", label: "Education and Productivity" },
               ].map((category) => (
                 <li
                   key={category.id}
@@ -246,11 +243,15 @@ export default function Home() {
                     }`}
                     onClick={() => handleCategoryClick(category.id)}
                   >
+                    <span className="checkbox-indicator">
+                      {selectedCategories.includes(category.id) ? '✔' : ''}
+                    </span>
                     {category.label}
                   </button>
                 </li>
               ))}
             </ul>
+
             {/* Nav buttons */}
             <div className="project-nav-buttons">
               <a

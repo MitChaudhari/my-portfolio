@@ -481,17 +481,32 @@ body {
   --category-color: #b7dbd8;
 }
 
-/* Category Buttons */
 .category-button {
   font-size: 0.9em;
   border-radius: 20px;
   background-color: #3a3a3a;
-  color: var(--category-color, #ffffff); /* Use the CSS variable */
+  color: var(--category-color, #ffffff);
   padding: 10px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
   font-family: inherit;
+  display: flex;
+  align-items: center; /* Ensure checkbox aligns with text */
+}
+
+/* Checkbox Indicator */
+.checkbox-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 8px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  font-weight: bold;
+  font-size: 0.9em;
 }
 
 /* Hover Effect */
@@ -500,12 +515,18 @@ body {
   transform: scale(1.05);
 }
 
-/* Selected State */
 .category-button.selected {
-  background-color: var(--category-color, #ffffff); /* Use the category color */
-  color: #000000; /* Font color becomes black */
+  background-color: var(--category-color, #ffffff);
+  color: #000000;
   font-weight: bold;
 }
+
+.category-button.selected .checkbox-indicator {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
 
 /* Project Page Nav buttons */
 .project-nav-buttons {
@@ -924,3 +945,4 @@ body {
   position: relative;
   z-index: 1;
 }
+
